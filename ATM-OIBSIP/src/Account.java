@@ -1,5 +1,5 @@
 
-/* Account, Withdraw, and Deposit
+/* Account, Withdraw, Deposit and Transfer
 @Author ChittiBabu - ATM Project */
 
 import java.text.DecimalFormat;
@@ -74,6 +74,21 @@ public class Account {
 		savingBalance = (savingBalance + amount);
 		return savingBalance;
 	}
+	
+	/* Customer Transfer Amount from Saving Account */
+
+	public double calSavingTransfer(double amount) {
+		savingBalance = (savingBalance - amount);
+		return savingBalance;
+	}
+
+	/* Customer Deposit Transfer Amount from Saving to Current Account */
+
+	public double calCurrentTransfer(double amount) {
+		currentBalance = (currentBalance + amount);
+		return currentBalance;
+	}
+
 
 	/* Customer Current Account Withdraw input */
 
@@ -134,6 +149,24 @@ public class Account {
 			System.out.println("Balance cannot be negative." + "\n");
 		}
 	}
+	
+	/* Customer Transfer Amount input */
+
+	public void getSavingTransferInput() {
+		System.out.println("Saving Account Balance: " + moneyFormat.format(savingBalance));
+		System.out.print("Amount you want to transfer from Saving Account: ");
+		double amount = input.nextDouble();
+		if (savingBalance >= 0) {
+			calSavingTransfer(amount);
+			System.out.println("New Saving Account balance: " + moneyFormat.format(savingBalance) + "\n");
+			calCurrentTransfer(amount);
+			System.out.println("New Current Account balance: " + moneyFormat.format(currentBalance) + "\n");
+		} else {
+			System.out.println("Balance cannot be negative." + "\n");
+		}
+
+	}
+
 
 	private int customerNumber;
 	private int pinNumber;
