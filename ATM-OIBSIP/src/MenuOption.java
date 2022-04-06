@@ -122,7 +122,8 @@ public class MenuOption extends Account {
 		System.out.println("Type 1 - View Balance");
 		System.out.println("Type 2 - Withdraw Funds");
 		System.out.println("Type 3 - Deposit Funds");
-		System.out.println("Type 4 - Exit");
+		System.out.println("Type 4 - Transfer Funds");
+		System.out.println("Type 5 - Exit");
 		System.out.print("Choice: ");
 
 		selection = menuInput.nextInt();
@@ -144,6 +145,11 @@ public class MenuOption extends Account {
 			break;
 
 		case 4:
+			getSavingTransferInput();
+			getAccountType();
+			break;
+
+		case 5:
 			System.out.println("Thank You for using this ATM.");
 			break;
 
